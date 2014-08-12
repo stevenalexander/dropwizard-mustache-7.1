@@ -41,7 +41,7 @@ dependencies {
         'io.dropwizard:dropwizard-views:' + dropwizardVersion,
         'io.dropwizard:dropwizard-views-mustache:' + dropwizardVersion,
         'com.sun.jersey:jersey-core:' + jerseyVersion,
-        'com.codahale.metrics:metrics-core' + metricsVersion
+        'com.codahale.metrics:metrics-core:' + metricsVersion
     )
     testCompile (
         'io.dropwizard:dropwizard-testing:' + dropwizardVersion,
