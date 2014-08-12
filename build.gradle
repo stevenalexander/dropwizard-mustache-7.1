@@ -28,6 +28,7 @@ buildscript {
 project.ext {
     dropwizardVersion = '0.7.1'
     jerseyVersion = '1.18.1'
+    metricsVersion = '3.0.2'
 }
 
 repositories {
@@ -37,13 +38,16 @@ repositories {
 dependencies {
     compile (
         'io.dropwizard:dropwizard-core:' + dropwizardVersion,
-        'com.sun.jersey:jersey-core:' + jerseyVersion
+        'io.dropwizard:dropwizard-views:' + dropwizardVersion,
+        'io.dropwizard:dropwizard-views-mustache:' + dropwizardVersion,
+        'com.sun.jersey:jersey-core:' + jerseyVersion,
+        'com.codahale.metrics:metrics-core' + metricsVersion
     )
     testCompile (
         'io.dropwizard:dropwizard-testing:' + dropwizardVersion,
         'com.sun.jersey:jersey-client:' + jerseyVersion,
         'com.sun.jersey.jersey-test-framework:jersey-test-framework-core:' + jerseyVersion,
-        'com.sun.jersey.jersey-test-framework:jersey-test-framework-inmemory:' + jerseyVersion
+        'com.sun.jersey.jersey-test-framework:jersey-test-framework-http:' + jerseyVersion
     )
 }
 

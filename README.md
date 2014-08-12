@@ -1,3 +1,21 @@
-# Dropwizard 7.1
+# Dropwizard Mustache 7.1
 
-Test project for Dropwizard 7.1 updating my previous 0.6.2 code sample to use 7.1
+Sample dropwizard application using Mustache for views. Requires gradle >=1.4 for build/dependencies.
+
+## Run
+
+```
+./go
+```
+
+## Test
+
+```
+gradle test
+```
+
+## Build standalone jar
+
+```
+gradle oneJar
+```

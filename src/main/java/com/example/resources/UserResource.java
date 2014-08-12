@@ -1,24 +1,19 @@
 package com.example.resources;
 
 import com.example.core.User;
+import com.example.views.UsersView;
 
-import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.LinkedList;
 import java.util.List;
 
 @Path("/user")
-@Consumes({MediaType.APPLICATION_JSON})
-@Produces({MediaType.APPLICATION_JSON})
+@Produces(MediaType.TEXT_HTML)
 public class UserResource {
 
-    /*
-    * Using the Auth attribute will use the injected provider to authenticate all requests to this path
-    * You can also use the principal to apply authorisation in code dynamically
-     */
     @GET
-    public List<User> getAll(){
+    public UsersView getAll(){
 
         List<User> users = new LinkedList<>();
         users.add(
@@ -34,31 +29,6 @@ public class UserResource {
                 .setDisplayRole("DBA")
         );
 
-        return users;
-    }
-
-    @GET
-    @Path("/{username}")
-    public User get(@PathParam("username") String username){
-        return new User()
-            .setUsername(username)
-            .setDisplayName(username)
-            .setDisplayRole("DBA");
-    }
-
-    @POST
-    public User add(@Valid User user) {
-        return user;
-    }
-
-    @PUT
-    @Path("/{username}")
-    public User update(@PathParam("username") String username, @Valid User user) {
-        return user;
-    }
-
-    @DELETE
-    @Path("/{username}")
-    public void delete(@PathParam("username") String username) {
+        return new UsersView(users);
     }
 }
